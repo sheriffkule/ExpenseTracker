@@ -22,6 +22,7 @@ function ExpencesOverwiev() {
         headerTintColor: GlobalStyles.colors.primary900,
         tabBarStyle: {backgroundColor: GlobalStyles.colors.primary500},
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
+        headerTitleAlign: 'center',
       }}>
       <BottomTabs.Screen
         name="RecentExpences"
@@ -39,7 +40,6 @@ function ExpencesOverwiev() {
         name="All Expences"
         component={AllExpenses}
         options={{
-          headerTitleAlign: 'center',
           title: 'All Expences',
           tabBarLabel: 'All Expences',
           tabBarIcon: ({color, size}) => (
