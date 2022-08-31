@@ -8,7 +8,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import ManageExpense from './screens/ManageExpense';
 import RecentExpenses from './screens/RecentExpenses';
 import AllExpenses from './screens/AllExpenses';
+
 import {GlobalStyles} from './constants/styles';
+import IconButton from './components/UI/IconButton';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,13 +19,23 @@ const BottomTabs = createBottomTabNavigator();
 function ExpencesOverwiev() {
   return (
     <BottomTabs.Navigator
-      screenOptions={{
+      screenOptions={({navigation}) => ({
         headerStyle: {backgroundColor: GlobalStyles.colors.primary500},
         headerTintColor: GlobalStyles.colors.primary900,
         tabBarStyle: {backgroundColor: GlobalStyles.colors.primary500},
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
         headerTitleAlign: 'center',
-      }}>
+        headerRight: ({tintColor}) => (
+          <IconButton
+            icon="add"
+            size={25}
+            color={tintColor}
+            onPress={() => {
+              navigation.navigate('ManageExpense');
+            }}
+          />
+        ),
+      })}>
       <BottomTabs.Screen
         name="RecentExpences"
         component={RecentExpenses}
