@@ -28,7 +28,7 @@ function ExpencesOverwiev() {
         headerRight: ({tintColor}) => (
           <IconButton
             icon="add"
-            size={25}
+            size={35}
             color={tintColor}
             onPress={() => {
               navigation.navigate('ManageExpense');
@@ -68,7 +68,14 @@ export default function App() {
     <>
       <StatusBar barStyle={'light-content'} />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {backgroundColor: GlobalStyles.colors.primary500},
+            headerTintColor: GlobalStyles.colors.primary900,
+            tabBarStyle: {backgroundColor: GlobalStyles.colors.primary500},
+            tabBarActiveTintColor: GlobalStyles.colors.accent500,
+            headerTitleAlign: 'center',
+          }}>
           <Stack.Screen
             name="Expences Overwiev"
             component={ExpencesOverwiev}
@@ -76,7 +83,15 @@ export default function App() {
               headerShown: false,
             }}
           />
-          <Stack.Screen name="Manage Expense" component={ManageExpense} />
+          <Stack.Screen
+            name="ManageExpense"
+            component={ManageExpense}
+            options={{
+              presentation: 'modal',
+              animation: 'fade',
+              animationTypeForReplace: 'push',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
