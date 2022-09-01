@@ -20,9 +20,9 @@ export default IconButton;
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    borderRadius: 20,
+    borderRadius: 10,
     marginHorizontal: 8,
-    marginBottom: 2,
+    marginVertical: 5,
     padding: 5,
     backgroundColor: GlobalStyles.colors.gray700,
     borderWidth: 0.2,
