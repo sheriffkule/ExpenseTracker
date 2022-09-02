@@ -11,7 +11,7 @@ import AllExpenses from './screens/AllExpenses';
 
 import {GlobalStyles} from './constants/styles';
 import IconButton from './components/UI/IconButton';
-import {ExpensesContexProvider} from './store/expenses-contex';
+import ExpensesContexProvider from './store/expenses-contex';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +20,7 @@ const BottomTabs = createBottomTabNavigator();
 function ExpencesOverwiev() {
   return (
     <BottomTabs.Navigator
+      initialRouteName="AllExpenses"
       screenOptions={({navigation}) => ({
         headerStyle: {backgroundColor: GlobalStyles.colors.primary500},
         headerTintColor: GlobalStyles.colors.primary900,
@@ -67,9 +68,9 @@ function ExpencesOverwiev() {
 export default function App() {
   return (
     <>
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStylef={'light-content'} />
       <ExpensesContexProvider>
-        <NavigationContainer documentTitle="Micika">
+        <NavigationContainer>
           <Stack.Navigator
             screenOptions={{
               headerStyle: {backgroundColor: GlobalStyles.colors.primary500},
@@ -91,7 +92,7 @@ export default function App() {
               options={{
                 presentation: 'modal',
                 animation: 'fade',
-                animationTypeForReplace: 'push',
+                animationTypeForReplace: 'pop',
               }}
             />
           </Stack.Navigator>
