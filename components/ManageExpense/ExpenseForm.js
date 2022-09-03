@@ -10,6 +10,7 @@ function ExpenseForm() {
     <View>
       <Input
         label="Amount"
+        placeholderTextColor={'#87cefa'}
         TextInputConfig={{
           keyboardType: 'decimal-pad',
           onChangeText: amountChangeHandler,
@@ -17,13 +18,23 @@ function ExpenseForm() {
       />
       <Input
         label="Date"
+        placeholderTextColor={'#87cefa'}
         TextInputConfig={{
           placeholder: 'YYY-MM-DD',
-          maxLengh: '10',
+          maxLength: 10,
           onChangeText: () => {},
         }}
       />
-      <Input label="Description" textInputConfig={{}} />
+      <Input
+        label="Description"
+        placeholderTextColor="#87cefa"
+        TextInputConfig={{
+          multiline: true,
+          textAlignVertical: 'top',
+          autoCorrect: false,
+          autoCapitalize: 'words',
+        }}
+      />
     </View>
   );
 }
