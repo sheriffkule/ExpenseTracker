@@ -30,13 +30,13 @@ function ManageExpense({route, navigation}) {
     if (isEditing) {
       expensesCtx.updateExpense(editedExpenseId, {
         description: 'test!!!!!',
-        amount: '9.99',
+        amount: 9.99,
         date: new Date('2022-08-31'),
       });
     } else {
       expensesCtx.addExpense({
         description: 'test',
-        amount: '14.99',
+        amount: 14.99,
         date: new Date('2022-09-01'),
       });
     }
@@ -45,6 +45,7 @@ function ManageExpense({route, navigation}) {
 
   return (
     <View style={styles.container}>
+      
       <View style={styles.buttons}>
         <Button style={styles.buttonStyle} mode="flat" onPress={cancelHandler}>
           Cancel
