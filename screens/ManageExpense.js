@@ -1,5 +1,5 @@
 import React, {useContext, useLayoutEffect} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 
 import Button from '../components/UI/Button';
 import IconButton from '../components/UI/IconButton';
@@ -46,7 +46,7 @@ function ManageExpense({route, navigation}) {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <ExpenseForm />
       <View style={styles.buttons}>
         <Button style={styles.buttonStyle} mode="flat" onPress={cancelHandler}>
@@ -66,7 +66,7 @@ function ManageExpense({route, navigation}) {
           />
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     minWidth: 140,
     marginHorizontal: 10,
-    marginTop: 12,
+    marginTop: 20,
   },
   deleteContainer: {
     marginTop: 20,
