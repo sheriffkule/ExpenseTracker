@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     minWidth: 140,
     marginHorizontal: 10,
+    marginTop: 12,
   },
   deleteContainer: {
     marginTop: 20,
