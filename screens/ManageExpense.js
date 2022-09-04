@@ -1,7 +1,6 @@
 import React, {useContext, useLayoutEffect} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 
-import Button from '../components/UI/Button';
 import IconButton from '../components/UI/IconButton';
 import {GlobalStyles} from '../constants/styles';
 import {ExpensesContex} from '../store/expenses-contex';
@@ -47,15 +46,10 @@ function ManageExpense({route, navigation}) {
 
   return (
     <ScrollView style={styles.container}>
-      <ExpenseForm />
-      <View style={styles.buttons}>
-        <Button style={styles.buttonStyle} mode="flat" onPress={cancelHandler}>
-          Cancel
-        </Button>
-        <Button style={styles.buttonStyle} onPress={confirmHandler}>
-          {isEditing ? 'Update' : 'Add'}
-        </Button>
-      </View>
+      <ExpenseForm
+        submitButtonLabel={isEditing ? 'Update' : 'Add'}
+        onCancel={cancelHandler}
+      />
       {isEditing && (
         <View style={styles.deleteContainer}>
           <IconButton
@@ -77,16 +71,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 25,
     backgroundColor: GlobalStyles.colors.primary800,
-  },
-  buttons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonStyle: {
-    minWidth: 140,
-    marginHorizontal: 10,
-    marginTop: 20,
   },
   deleteContainer: {
     marginTop: 20,
