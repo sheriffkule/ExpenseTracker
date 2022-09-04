@@ -20,7 +20,6 @@ const BottomTabs = createBottomTabNavigator();
 function ExpencesOverwiev() {
   return (
     <BottomTabs.Navigator
-      initialRouteName="AllExpenses"
       screenOptions={({navigation}) => ({
         headerStyle: {backgroundColor: GlobalStyles.colors.primary500},
         headerTintColor: GlobalStyles.colors.primary900,
@@ -39,6 +38,17 @@ function ExpencesOverwiev() {
         ),
       })}>
       <BottomTabs.Screen
+        name="All Expences"
+        component={AllExpenses}
+        options={{
+          title: 'All Expences',
+          tabBarLabel: 'All Expences',
+          tabBarIcon: ({color, size}) => (
+            <Ionicons name="calendar" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTabs.Screen
         name="RecentExpences"
         component={RecentExpenses}
         options={{
@@ -47,17 +57,6 @@ function ExpencesOverwiev() {
           tabBarLabel: 'Recent',
           tabBarIcon: ({color, size}) => (
             <Ionicons name="hourglass" size={size} color={color} />
-          ),
-        }}
-      />
-      <BottomTabs.Screen
-        name="All Expences"
-        component={AllExpenses}
-        options={{
-          title: 'All Expences',
-          tabBarLabel: 'All Expences',
-          tabBarIcon: ({color, size}) => (
-            <Ionicons name="calendar" size={size} color={color} />
           ),
         }}
       />
