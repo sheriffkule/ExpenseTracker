@@ -10,6 +10,8 @@ function RecentExpenses() {
   useEffect(() => {
     async function getExpenses() {
       const expenses = await fetchExpenses();
+      //setFetchedExpenses(expenses);
+      expensesCtx.setExpenses(expenses);
     }
 
     getExpenses();
