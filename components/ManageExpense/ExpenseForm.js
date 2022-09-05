@@ -104,7 +104,9 @@ function ExpenseForm({submitButtonLabel, onCancel, onSubmit, defaultValues}) {
         }}
       />
       {formIsInvalid && (
-        <Text style={styles.errorText}>Invalid input values - please check yuour entered data</Text>
+        <Text style={styles.errorText}>
+          Invalid input values - please check yuour entered data
+        </Text>
       )}
       <View style={styles.buttons}>
         <Button style={styles.buttonStyle} mode="flat" onPress={onCancel}>
